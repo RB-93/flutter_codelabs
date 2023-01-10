@@ -76,6 +76,7 @@ class DoodleDash extends FlameGame
     // Core gameplay: Reset player & camera boundaries
 
     // Add a Player to the game: Reset Dash's position back to the start
+    player.resetPosition();
 
     objectManager = ObjectManager(
         minVerticalDistanceToNextPlatform: levelManager.minDistance,

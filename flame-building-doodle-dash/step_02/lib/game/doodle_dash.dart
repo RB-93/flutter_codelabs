@@ -24,6 +24,7 @@ class DoodleDash extends FlameGame
   ObjectManager objectManager = ObjectManager();
 
   // Add a Player to the game: Create a Player variable
+  late Player player;
 
   @override
   Future<void> onLoad() async {

@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import './world.dart';
 import 'managers/managers.dart';
 // Add a Player to the game: import Sprites
+import 'sprites/sprites.dart';
 
 enum Character { dash, sparky }
 

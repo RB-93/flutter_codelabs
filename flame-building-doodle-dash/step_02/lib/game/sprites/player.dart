@@ -69,6 +69,7 @@ class Player extends SpriteGroupComponent<PlayerState>
 
     // Add a Player to the game: Calculate Dash's current position based on
     // her velocity over elapsed time since last update cycle
+    position = _velocity * dt;
     super.update(dt);
   }
 

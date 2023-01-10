@@ -60,6 +60,7 @@ class Player extends SpriteGroupComponent<PlayerState>
     if (gameRef.gameManager.isIntro || gameRef.gameManager.isGameOver) return;
 
     // Add a Player to the game: Add calcualtion for Dash's horizontal velocity
+    _velocity.x = _hAxisInput * jumpSpeed;
 
     final double dashHorizontalCenter = size.x / 2;
 

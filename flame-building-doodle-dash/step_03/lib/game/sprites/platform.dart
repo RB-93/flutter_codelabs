@@ -49,6 +49,7 @@ abstract class Platform<T> extends SpriteGroupComponent<T>
 }
 
 // Add platforms: Add NormalPlatformState Enum
+enum NormalPlatformState { only }
 
 // Add platforms: Add NormalPlatform class
 

@@ -99,6 +99,9 @@ class ObjectManager extends Component with HasGameRef<DoodleDash> {
   }
 
   // Add platforms: Add _semiRandomPlatform method
+  Platform _semiRandomPlatform(Vector2 position) {
+    return NormalPlatform(position: position);
+  }
 
   // Losing the game: Add enemy code
 

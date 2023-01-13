@@ -68,7 +68,7 @@ class Player extends SpriteGroupComponent<PlayerState>
     if (position.x < dashHorizontalCenter) {
       position.x = gameRef.size.x - (dashHorizontalCenter);
     }
-    if (position.x > dashHorizontalCenter) {
+    if (position.x > gameRef.size.x - (dashHorizontalCenter)) {
       position.x = dashHorizontalCenter;
     }
 
@@ -76,7 +76,7 @@ class Player extends SpriteGroupComponent<PlayerState>
 
     // Add a Player to the game: Calculate Dash's current position based on
     // her velocity over elapsed time since last update cycle
-    position = _velocity * dt;
+    position += _velocity * dt;
     super.update(dt);
   }
 

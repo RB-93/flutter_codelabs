@@ -69,6 +69,7 @@ class Player extends SpriteGroupComponent<PlayerState>
     }
 
     // Core gameplay: Add gravity
+    _velocity.y += _gravity;
 
     position += _velocity * dt;
 

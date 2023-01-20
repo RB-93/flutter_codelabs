@@ -88,6 +88,14 @@ class DoodleDash extends FlameGame
     levelManager.reset();
 
     // Core gameplay: Reset player & camera boundaries
+    player.reset();
+    camera.worldBounds = Rect.fromLTRB(
+      0,
+      -_world.position.y,
+      camera.gameSize.x,
+      _world.size.y + screenBufferSpace,
+    );
+    camera.followComponent(player);
 
     player.resetPosition();
 

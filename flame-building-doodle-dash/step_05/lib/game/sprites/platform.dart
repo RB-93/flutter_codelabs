@@ -61,6 +61,11 @@ abstract class Platform<T> extends SpriteGroupComponent<T>
   }
 
   // More on Platforms: Override update method
+  @override
+  void update(double dt) {
+    _move(dt);
+    super.update(dt);
+  }
 }
 
 enum NormalPlatformState { only }

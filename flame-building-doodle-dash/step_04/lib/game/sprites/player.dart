@@ -49,6 +49,7 @@ class Player extends SpriteGroupComponent<PlayerState>
     await super.onLoad();
 
     // Core gameplay: Add circle hitbox to Dash
+    await add(CircleHitbox());
 
     await _loadCharacterSprites();
     current = PlayerState.center;

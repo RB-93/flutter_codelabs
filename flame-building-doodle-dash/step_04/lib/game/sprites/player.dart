@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 
 import '../doodle_dash.dart';
 // Core gameplay: Import sprites.dart
+import 'sprites.dart';
 
 enum PlayerState {
   left,

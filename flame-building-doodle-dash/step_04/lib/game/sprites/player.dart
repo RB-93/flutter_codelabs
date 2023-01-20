@@ -129,6 +129,9 @@ class Player extends SpriteGroupComponent<PlayerState>
   // Core gameplay: Override onCollision callback
 
   // Core gameplay: Add a jump method
+  void jump({double? specialJumpSpeed}) {
+    _velocity.y = specialJumpSpeed != null ? -specialJumpSpeed : jumpSpeed;
+  }
 
   void _removePowerupAfterTime(int ms) {
     Future.delayed(Duration(milliseconds: ms), () {

@@ -105,8 +105,47 @@ class BrokenPlatform extends Platform<BrokenPlatformState> {
 }
 
 // More on Platforms: Add Add Spring State Enum
+enum SpringState { down, up }
 
 // More on Platforms: Add SpringBoard Platform class
+class SpringBoard extends Platform<SpringState> {
+  SpringBoard({super.position});
+
+  @override
+  Future<void>? onLoad() async {
+    await super.onLoad();
+
+    sprites = {
+      SpringState.down:
+          await gameRef.loadSprite('game/platform_trampoline_down.png'),
+      SpringState.up:
+          await gameRef.loadSprite('game/platform_trampoline_up.png'),
+    };
+
+    current = SpringState.up;
+    size = Vector2(100, 45);
+  }
+
+  @override
+  void onCollisionStart(
+      Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollisionStart(intersectionPoints, other);
+
+    bool isCollidingVertically =
+        (intersectionPoints.first.y - intersectionPoints.last.y).abs() < 5;
+
+    if (isCollidingVertically) {
+      current = SpringState.down;
+    }
+  }
+
+  @override
+  void onCollisionEnd(PositionComponent other) {
+    super.onCollisionEnd(other);
+
+    current = SpringState.up;
+  }
+}
 
 // Losing the game: Add EnemyPlatformState Enum
 

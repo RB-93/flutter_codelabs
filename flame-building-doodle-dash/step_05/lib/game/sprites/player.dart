@@ -137,7 +137,17 @@ class Player extends SpriteGroupComponent<PlayerState>
         return;
       }
       // More on platforms: Check SpringBoard platform
+      else if (other is SpringBoard) {
+        jump(specialJumpSpeed: jumpSpeed * 2);
+        return;
+      }
       // More on platforms: Check BrokenPlatform
+      else if (other is BrokenPlatform &&
+          other.current == BrokenPlatformState.cracked) {
+        jump();
+        other.breakPlatform();
+        return;
+      }
     }
 
     // Powerups: Collision logic for Rocket

@@ -41,6 +41,8 @@ abstract class Platform<T> extends SpriteGroupComponent<T>
     await add(hitbox);
 
     // More on Platforms: Set isMoving
+    final int rand = Random().nextInt(100);
+    if (rand > 80) isMoving = true;
   }
 
   // More on Platforms: Add _move method

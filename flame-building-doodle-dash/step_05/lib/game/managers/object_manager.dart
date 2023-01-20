@@ -150,6 +150,15 @@ class ObjectManager extends Component with HasGameRef<DoodleDash> {
 
   Platform _semiRandomPlatform(Vector2 position) {
     // More on Platforms: Add logic to conditionally return special platforms
+    if (specialPlatforms['spring'] == true &&
+        probGen.generateWithProbability(15)) {
+      return SpringBoard(position: position);
+    }
+
+    if (specialPlatforms['broken'] == true &&
+        probGen.generateWithProbability(10)) {
+      return BrokenPlatform(position: position);
+    }
 
     return NormalPlatform(position: position);
   }

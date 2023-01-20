@@ -127,6 +127,20 @@ class Player extends SpriteGroupComponent<PlayerState>
   // Powerups: Add isWearingHat getter
 
   // Core gameplay: Override onCollision callback
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollision(intersectionPoints, other);
+    bool isCollidingVertically =
+        (intersectionPoints.first.y - intersectionPoints.last.y).abs() < 5;
+
+    if (isMovingDown && isCollidingVertically) {
+      current = PlayerState.center;
+      if (other is NormalPlatform) {
+        jump();
+        return;
+      }
+    }
+  }
 
   // Core gameplay: Add a jump method
   void jump({double? specialJumpSpeed}) {

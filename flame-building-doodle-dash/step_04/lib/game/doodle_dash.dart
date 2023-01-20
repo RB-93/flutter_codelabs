@@ -50,6 +50,23 @@ class DoodleDash extends FlameGame
       checkLevelUp();
 
       // Core gameplay: Add camera code to follow Dash during game play
+      final Rect worldBounds = Rect.fromLTRB(
+        0,
+        camera.position.y - screenBufferSpace,
+        camera.gameSize.x,
+        camera.position.y + _world.size.y,
+      );
+
+      camera.worldBounds = worldBounds;
+
+      if (player.isMovingDown) {
+        camera.worldBounds = worldBounds;
+      }
+
+      var isInTopHalfOfScreen = player.position.y <= (_world.size.y / 2);
+      if (!player.isMovingDown && isInTopHalfOfScreen) {
+        camera.followComponent(player);
+      }
 
       // Losing the game: Add the first loss condition.
       // Game over if Dash falls off screen!

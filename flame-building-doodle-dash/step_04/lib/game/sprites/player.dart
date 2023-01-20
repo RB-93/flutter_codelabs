@@ -144,7 +144,7 @@ class Player extends SpriteGroupComponent<PlayerState>
 
   // Core gameplay: Add a jump method
   void jump({double? specialJumpSpeed}) {
-    _velocity.y = specialJumpSpeed != null ? -specialJumpSpeed : jumpSpeed;
+    _velocity.y = specialJumpSpeed != null ? -specialJumpSpeed : -jumpSpeed;
   }
 
   void _removePowerupAfterTime(int ms) {

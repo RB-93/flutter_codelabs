@@ -78,8 +78,31 @@ class NormalPlatform extends Platform<NormalPlatformState> {
 }
 
 // More on Platforms: Add BrokenPlatform State Enum
+enum BrokenPlatformState { cracked, broken }
 
 // More on Platforms: Add BrokenPlatform class
+class BrokenPlatform extends Platform<BrokenPlatformState> {
+  BrokenPlatform({super.position});
+
+  @override
+  Future<void>? onLoad() async {
+    await super.onLoad();
+
+    sprites = {
+      BrokenPlatformState.cracked:
+          await gameRef.loadSprite('game/platform_cracked_monitor.png'),
+      BrokenPlatformState.broken:
+          await gameRef.loadSprite('game/platform_monitor_broken.png'),
+    };
+
+    current = BrokenPlatformState.cracked;
+    size = Vector2(115, 84);
+  }
+
+  void breakPlatform() {
+    current = BrokenPlatformState.broken;
+  }
+}
 
 // More on Platforms: Add Add Spring State Enum
 

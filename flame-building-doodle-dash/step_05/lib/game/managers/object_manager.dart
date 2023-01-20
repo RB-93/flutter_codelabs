@@ -100,6 +100,14 @@ class ObjectManager extends Component with HasGameRef<DoodleDash> {
   void enableLevelSpecialty(int level) {
     // More on Platforms: Add switch statement to enable SpringBoard for
     // level 1 and BrokenPlatform for level 2
+    switch (level) {
+      case 1:
+        enableSpecialty('spring');
+        break;
+      case 2:
+        enableSpecialty('broken');
+        break;
+    }
   }
 
   void resetSpecialties() {

@@ -126,6 +126,11 @@ class DoodleDash extends FlameGame
   }
 
   // Losing the game: Add an onLose method
+  void onLose() {
+    gameManager.state = GameState.gameOver;
+    player.removeFromParent();
+    overlays.add('gameOverOverlay');
+  }
 
   void togglePauseState() {
     if (paused) {

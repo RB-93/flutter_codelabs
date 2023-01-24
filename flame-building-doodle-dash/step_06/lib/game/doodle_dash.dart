@@ -71,6 +71,13 @@ class DoodleDash extends FlameGame
 
       // Losing the game: Add the first loss condition.
       // Game over if Dash falls off screen!
+      if (player.position.y >
+          camera.position.y +
+              _world.size.y +
+              player.size.y +
+              screenBufferSpace) {
+        onLose();
+      }
     }
   }
 

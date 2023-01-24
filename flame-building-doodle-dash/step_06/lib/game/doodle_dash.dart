@@ -6,6 +6,7 @@ import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
 
+import '../main.dart';
 import './world.dart';
 import 'managers/managers.dart';
 import 'sprites/sprites.dart';
@@ -40,6 +41,9 @@ class DoodleDash extends FlameGame
     super.update(dt);
 
     // Losing the game: Add isGameOver check
+    if (gameManager.isGameOver) {
+      return;
+    }
 
     if (gameManager.isIntro) {
       overlays.add('mainMenuOverlay');

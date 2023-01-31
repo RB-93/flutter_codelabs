@@ -126,6 +126,10 @@ class Player extends SpriteGroupComponent<PlayerState>
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollision(intersectionPoints, other);
     // Losing the game: Add collision logic for EnemyPlatform
+    if (other is EnemyPlatform) {
+      gameRef.onLose();
+      return;
+    }
 
     bool isCollidingVertically =
         (intersectionPoints.first.y - intersectionPoints.last.y).abs() < 5;
